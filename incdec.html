@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantity Increment Decrement</title>
+    <style>
+        body{
+            background-color: #f7f6f7;
+        }
+        .bag-img{
+            height: 100px;
+            display: block;
+            margin: 5px auto;
+            border-radius: 20px;
+            padding: 10px 20px;
+            background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
+        }
+        .product-card{
+            background-color: white;
+            width: 200px;
+            border-radius: 20px;
+            padding: 3px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: block;
+            margin: 30px auto;
+
+        }
+        .product-title{
+            font-size: 16px;
+        }
+        .card-body{
+          margin-left: 7px;
+        }
+        .product-desp{
+            font-size: 10px;
+        }
+        .product-price{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .btn-buy-now{
+            background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
+            border: none;
+            color: black;
+            border-radius: 20px;
+            padding: 5px 20px;
+            display: block;
+            margin: 10px auto;
+
+        }
+        .btn-quantity{
+            height: 25px;
+
+        }
+        .quantity-btn-cont{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .text{
+            font-size: 25px;
+            margin: auto 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="product-card">
+<img src="bag.png" class="bag-img">
+<div class="card-body">
+    <h1 class="product-title"> Vintage Leather Bad</h1>
+    <p class="product-desp">
+        Simple and Stylish carry bag. Easy to carry your products.
+    </p>
+   <p class="product-price"> ₹ 420/- </p> 
+   <p id="show-quantity">
+    1 x 420 
+   </p>
+   <p id="show-text">Total: 420</p>
+
+<div class="quantity-btn-cont">
+    <img src="minus.png" class="btn-quantity" onclick="dec()">
+    <span class="text" id="quantity-text"> 1 </span>
+    <img src="plus.png" class="btn-quantity" onclick="inc()">
+</div>
+
+   <button type="button" class="btn-buy-now"> Buy Now </button>
+</div>
+
+    </div>
+
+    <script>
+       
+          const  quantityText = document.getElementById('quantity-text');
+          const showQuantity = document.getElementById("showquantity");
+          const showTotal = document.getElementById("showtotal");
+
+          function inc(){
+          
+          let quantity = parseInt(quantityTex.innerText);
+            quantityText.innerText = ++quantity;
+            if(quantity<10){
+        quantityText.innerText = ++quantity ;
+      }
+      else
+      {
+        alert("You can't add more than 10 items");
+      }
+      showQuantity.innerText = `${quantity} x 420` ;
+      showtTotal.innerText = `Total: ${quantity * 420}`
+        }      
+
+        function dec(){
+          const  quantityText = document.getElementById('quantity-text');
+          const showQuantity = document.getElementById("showquantity");
+          const showTotal = document.getElementById("showtotal");
+          let quantity = parseInt(quantityTex.innerText);
+          
+          quantityText.innerText = --quantity;
+          if(quantity > 1){
+        quantityText.innerText = --quantity ;
+      }
+      else
+      {
+        alert("You can't add mopre than 10 items");
+      }
+      showQuantity.innerText = `${quantity} x 420` ;
+      showtTotal.innerText = `Total: ${quantity * 420}`
+        }      
+    </script>
+</body>
+</html>
